@@ -1,0 +1,44 @@
+# 模型训练配置参数
+pretrained_model_name_or_path: 'demo'
+resume_from_checkpoint: null # 模型从检查点加载参数
+output_dir: 'output_dir'
+checkpoint_dir: 'checkpoints'
+checkpoint_steps: 5000 # 每隔多少次更新，保存一次模型
+checkpoint_total_limit: 100 # 模型参数保存的最大数目
+examples_dir: 'examples'
+plot_dir: 'plots'
+dataset_name_or_path: null # 数据集名或数据集地址
+splits: ['train', 'eval']
+
+logging_dir: 'logs'
+log_with: ['no','wandb', 'tensorboard', 'all']
+logging_steps: 500 # 每隔多少步进行一次性能评估
+
+seed: 42 # 随机种子
+epsilon: 1e-9 # 极小数
+num_epochs: 100 # 模型训练轮数
+num_dataloader_workers: 4 
+train_batch_size: 32
+eval_batch_size: 32 # 
+optimizer: "Adam" # 优化器
+lr_schecdler: 'consin' # 学习率调度器
+learning_rate: 1e-4 # 初始学习率
+scale_lr: True # 缩放学习率
+weight_decay: 2e-6 # 权重衰减
+lr_warmup_steps: 5000 # 模型预热部属
+
+
+use_8bit_adam: True
+gradient_checkpointing: True
+allow_mixed_precision: ['no', 'fp16', 'bf16']
+
+enable_xformers_memory_efficient_attention: True
+allow_tf32: True # nvidia ampere 
+model_ema: True # 指数滑动平均
+clip_norm: False # 依据模型参数范数，截断模型参数
+clip_grad: False # 依据模型参数梯度, 截断模型参数
+
+early_stop_epochs: 3 # 模型早停轮数
+gradient_accumulation_steps: 4 # 梯度累计步数
+
+

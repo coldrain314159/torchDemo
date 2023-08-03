@@ -3,9 +3,7 @@
 # 基于Torch和huggingFace Accelerate的深度学习基础实现DEMO框架
 
 
-
-
-
+可根据需要修改以适应各种深度学习项目需要
 
 
 >

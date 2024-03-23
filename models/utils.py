@@ -27,6 +27,8 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as tfs 
 from einops import rearrange, reduce, repeat 
 
+# 文件遍历
+from glob import glob 
 
 # 图像预处理相关imports
 import matplotlib.pyplot as plt 
@@ -48,6 +50,7 @@ class ImageDataset(Dataset):
     
     def __len__(self,):
         pass 
+
 
 class TextDataset(Dataset):
     def __init__(self) -> None:
